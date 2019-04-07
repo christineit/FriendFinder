@@ -19,68 +19,126 @@
 
   <body>
     <div class="container">
-      <div class="jumbotron">
-        <h1 class="text-center">
-          <span class="fa fa-fire"></span> Hot Restaurant
-        </h1>
-        <hr />
-        <h2 class="text-center">Make your reservation</h2>
-        <br />
-        <div class="text-center">
-          <a href="/tables">
-            <button class="btn btn-lg btn-primary">
-              <span class="fa fa-list-alt"></span> View Tables
-            </button>
-          </a>
-          <a href="/">
-            <button class="btn btn-lg btn-default">
-              <span class="fa fa-home"></span>
-            </button>
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <!-- Reservation Page -->
-          <div class="card">
-            <div class="card-header">
-              Table Reservation
-            </div>
-            <div class="card-body">
-              <form role="form">
-                <div class="form-group">
-                  <label for="reserve-name">Name</label>
-                  <input type="text" class="form-control" id="reserve-name" />
-                </div>
-                <div class="form-group">
-                  <label for="reserve-phone">Phone Number</label>
-                  <input type="text" class="form-control" id="reserve-phone" />
-                </div>
-                <div class="form-group">
-                  <label for="reserve-email">Email</label>
-                  <input type="text" class="form-control" id="reserve-email" />
-                </div>
-                <div class="form-group">
-                  <label for="reserve-unique-id">Unique ID</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="reserve-unique-id"
-                  />
-                </div>
-                <button type="submit" class="btn btn-primary submit">
-                  Submit
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h1>Survey Questions</h1>
+      <hr />
+      <h3>
+        <strong>About You</strong>
+      </h3>
+      <h5>Name (Required):</h5>
+        <form action="#">
+              <input type="text" name="fullname" value="" /><br />
+        </form>
+      <h5>Link to Photo Image (Required):</h5>
+        <form action="#">
+            <input type="text" name="photo" value="" /><br />
+        </form>
+      <hr/>
+        <h3><b>Question 1</b></h3>
+        <h4>My dog is very social. </h4> 
+        <select class= "chosen-select" id="q1" style= "display: none;">     
+            <option value></option>
+            <option value="1">1 (strongly disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3 (strongly agree</option>
+        </select>
+        <div>
+        <h3><b>Question 2</b></h3>
+          <form action="#">
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="agree" />Strongly Agree<br />
+              </label>
+              <label class="radio-disagree
+                <input type="radio" name="answer" value="disagree" />Strongly
+                Disagree<br />
+              </label>
+            </form>
+        <h3><b>Question 3</b></h3>
+          <form action="#">
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="agree" />Strongly Agree<br />
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="disagree" />Strongly
+                Disagree<br />
+              </label>
+            </form>
+        <h3><b>Question 4</b></h3>
+          <form action="#">
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="agree" />Strongly Agree<br />
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="disagree" />Strongly
+                Disagree<br />
+              </label>
+            </form>
+        <h3><b>Question 5</b></h3>
+          <form action="#">
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="agree" />Strongly Agree<br />
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="disagree" />Strongly
+                Disagree<br />
+              </label>
+            </form>
+        <h3><b>Question 6</b></h3>
+          <form action="#">
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="agree" />Strongly Agree<br />
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="disagree" />Strongly
+                Disagree<br />
+              </label>
+            </form>
+        <h3><b>Question 7</b></h3>
+          <form action="#">
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="agree" />Strongly Agree<br />
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="disagree" />Strongly
+                Disagree<br />
+              </label>
+            </form>
+        <h3><b>Question 8</b></h3>
+          <form action="#">
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="agree" />Strongly Agree<br />
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="disagree" />Strongly
+                Disagree<br />
+              </label>
+            </form>
+        <h3><b>Question 9</b></h3>
+          <form action="#">
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="agree" />Strongly Agree<br />
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="disagree" />Strongly
+                Disagree<br />
+              </label>
+            </form>
+        <h3><b>Question 10</b></h3>
+          <form action="#">
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="agree" />Strongly Agree<br />
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="answer" value="disagree" />Strongly
+                Disagree<br />
+              </label>
+            </form>
+        <button type="button" class="btn btn-success">Get Result!</button>
+    </div>
 
       <footer class="footer">
         <div class="container">
           <p>
-            <a href="/api/tables">API Table Link</a> |
+            <a href="/api/tables">API Table Lidisagree
             <a href="/api/waitlist">API Wait List</a>
           </p>
         </div>
