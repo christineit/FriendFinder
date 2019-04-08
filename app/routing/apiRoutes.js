@@ -27,6 +27,25 @@ module.exports = function(app) {
     getProfiles(res);
   });
 
+  app.post("/api/friends", function(req, res) {
+    var bestMatch = {
+      name: "",
+      photo: "",
+      friendDifference: 5000
+    };
+    console.log(req.body);
+
+    var userData = req.body;
+    var userScores = userData.scores;
+
+    var totalDifference = 0;
+
+    for (var i = 0; o < friends.length; i++) {
+      totalDifference += Math.abs(
+        parseInt(userScores[i]) - parseInt(friends[i])
+      );
+    }
+  });
   //express is the server!
   //get route for all profiles
   //post route to add new profiles

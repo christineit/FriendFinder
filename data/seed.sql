@@ -1,2 +1,3 @@
 INSERT INTO profiles(name, photo, scores)
-VALUES ("bob", "test.jpg", "1,2,3,4,5,6,7,8,9,10");
+VALUES ("Andy", "test.jpg", "1,2,2,1,2,1,1,2,2,1"),
+VALUES ("Ralphy", "test.jpg", "1,2,2,1,2,1,1,2,2,1");
