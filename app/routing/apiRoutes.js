@@ -26,38 +26,17 @@ module.exports = function(app) {
     // console.log("ROUTE HIT?!");
     getProfiles(res);
   });
-
+  function findMatch(userData, friends) {
+    console.log(userData);
+    console.log(friends);
+  }
   app.post("/api/friends", function(req, res) {
-    var bestMatch = {
-      name: "",
-      photo: "",
-      friendDifference: 5000
-    };
-    console.log(req.body);
-
-    var userData = req.body;
-    var userScores = userData.scores;
-
-    var totalDifference = 0;
-
-    for (var i = 0; o < friends.length; i++) {
-      totalDifference += Math.abs(
-        parseInt(userScores[i]) - parseInt(friends[i])
-      );
-    }
+    // console.log(req.body);
+    findMatch(req.body, res);
   });
-  //express is the server!
-  //get route for all profiles
-  //post route to add new profiles
-  //when posting new user data, also use that data to find match
-  //response with matched profile
-  // const friends = getFriends()
-  // findMatch(userData, friends)
 };
 
-// let friends;
-
-//declare functions for querying the db and a finding match
+// //declare functions for querying the db and a finding match
 function getProfiles(response) {
   connection.query("SELECT * FROM profiles", function(err, result) {
     if (err) {
@@ -68,7 +47,11 @@ function getProfiles(response) {
     response.json(result);
   });
 }
-// friends = profiles;
+
+//====================================================================
+//PSEUDO CODE
+//=====================================================================
+/* friends = profiles;
 //finding a match
 
 // function findMatch(userData, friends) {
@@ -95,6 +78,4 @@ function getProfiles(response) {
 //     }
 
 // return bestMatch;
-// }
-
-// }
+  }*/

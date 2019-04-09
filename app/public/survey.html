@@ -128,70 +128,70 @@
           <option value="5">5 (Strongly Agree)</option>
         </select>
         <div class ="text-center">
-          <button type="button" class="btn btn-success">Get Result!</button>
+          <button type="button" class="btn btn-success" id="submit">Get Result!</button>
         </div>
     </div>
 
       <footer class="footer">
-        <div class="container">
-          <p>
-            <!-- <a href="/api/friends">API Friend Link</a>  -->
-          </p>
-        </div>
       </footer>
     </div>
-  </body>
+  <div id= "resultsModal" class="modal fade" role="dialogue">
+    <div class= "modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 class="modal-title"><strong>Best Match</strong></h2>
+      </div>
+      <div class="modal-body">
+        <h2 id="matchName"></h2>
+        <img id="matchImg" src=C:/Users/Christine/Desktop/FriendFinder/app/public/assets/andy.png" alt="">
+      </div>
+      <div class="modal-footer">
+        <button type="button class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <script>
+$(".submit").on("click", function(event) {
+  event.preventDefault();
+
+  // Here we grab the form elements
+  var userData = {
+    name: $("#name").val(),
+    photo: $("#photo").val(),
+    scores: [
+    $("#question 1").val(),
+    $("#question 2").val(),
+    $("#question 3").val(),
+    $("#question 4").val(),
+    $("#question 5").val(),
+    $("#question 6").val(),
+    $("#question 7").val(),
+    $("#question 8").val(),
+    $("#question 9").val(),
+    $("#question 10").val(),
+  ]
+  };
+
+  console.log(userData);
+
+ var currentURL = window.location.origin;
+
+  $.post(currentURL + "/api/friends", userData, function(data) {
+    $("#resultsModal").modal("toggle");
+    alert("working!");
+  });
+  {
+    else {
+      alert("Please fill out all fields before submitting survey.")
+    }
+  }
+});
+  </script>
+</body>
 </html>
 
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
-  // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
-  // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
-  // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
-  // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
-
-  $(".submit").on("click", function(event) {
-    event.preventDefault();
-
-    // Here we grab the form elements
-    var newReservation = {
-      customerName: $("#reserve-name")
-        .val()
-        .trim(),
-      phoneNumber: $("#reserve-phone")
-        .val()
-        .trim(),
-      customerEmail: $("#reserve-email")
-        .val()
-        .trim(),
-      customerID: $("#reserve-unique-id")
-        .val()
-        .trim()
-    };
-
-    console.log(newReservation);
-
-    // This line is the magic. It"s very similar to the standard ajax function we used.
-    // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-    // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-    // depending on if a tables is available or not.
-
-    $.post("/api/tables", newReservation, function(data) {
-      // If a table is available... tell user they are booked.
-      if (data) {
-        alert("Yay! You are officially booked!");
-      }
-
-      // If a table is available... tell user they on the waiting list.
-      else {
-        alert("Sorry you are on the wait list");
-      }
-
-      // Clear the form when submitting
-      $("#reserve-name").val("");
-      $("#reserve-phone").val("");
-      $("#reserve-email").val("");
-      $("#reserve-unique-id").val("");
-    });
-  });
-</script>
+ 
+ 
