@@ -44,5 +44,11 @@
         </div>
       </footer>
     </div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script>
+      $.get("/api/friends", function(res){
+        console.log(res)
+      })
+    </script>
   </body>
 </html>

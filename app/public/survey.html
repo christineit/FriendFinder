@@ -28,7 +28,7 @@
       <hr/>
         <h4><b>Question 1</b></h4>
         <h5>My dog is very energetic. </h5> 
-        <select data-placeholder="" class="chosen-select" id="question 1">
+        <select data-placeholder="" class="chosen-select" id="question1">
           <option value=""></option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -38,7 +38,7 @@
         </select>
         <h4><b>Question 2</b></h4>
         <h5>My dog likes to play more aggressively.</h5>
-        <select data-placeholder="" class="chosen-select" id="question 2">
+        <select data-placeholder="" class="chosen-select" id="question2">
           <option value=""></option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -48,7 +48,7 @@
         </select>
         <h4><b>Question 3</b></h4>
         <h5>My dog's breed is in the toy group.</h5>
-        <select data-placeholder="" class="chosen-select" id="question 3">
+        <select data-placeholder="" class="chosen-select" id="question3">
           <option value=""></option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -58,7 +58,7 @@
         </select>
         <h4><b>Question 4</b></h4>
         <h5>My dog is submissive.</h5>
-        <select data-placeholder="" class="chosen-select" id="question 4">
+        <select data-placeholder="" class="chosen-select" id="question4">
           <option value=""></option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -69,7 +69,7 @@
             </form>
         <h4><b>Question 5</b></h4>
         <h5>My dog likes to be the alpha.</h5>
-        <select data-placeholder="" class="chosen-select" id="question 5">
+        <select data-placeholder="" class="chosen-select" id="question5">
           <option value=""></option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -79,7 +79,7 @@
         </select>
         <h4><b>Question 6</b></h4>
         <h5>My dog cares more about humans than interacting with other dogs.</h5>
-        <select data-placeholder="" class="chosen-select" id="question 6">
+        <select data-placeholder="" class="chosen-select" id="question6">
           <option value=""></option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -89,7 +89,7 @@
         </select>
         <h4><b>Question 7</b></h4>
         <h5>My dog likes to bark while playing.</h5>
-        <select data-placeholder="" class="chosen-select" id="question 7">
+        <select data-placeholder="" class="chosen-select" id="question7">
           <option value=""></option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -99,7 +99,7 @@
         </select>
         <h4><b>Question 8</b></h4>
         <h5>My dog is small in size, but has a big personality.</h5>
-        <select data-placeholder="" class="chosen-select" id="question 8">
+        <select data-placeholder="" class="chosen-select" id="question8">
           <option value=""></option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -109,7 +109,7 @@
         </select>
         <h4><b>Question 9</b></h4>
         <h5>My dog just likes to chill out.</h5>
-        <select data-placeholder="" class="chosen-select" id="question 9">
+        <select data-placeholder="" class="chosen-select" id="question9">
           <option value=""></option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -119,7 +119,7 @@
         </select>        
         <h4><b>Question 10</b></h4>
         <h5>My dog likes to fetch balls.</h5>
-        <select data-placeholder="" class="chosen-select" id="question 10">
+        <select data-placeholder="" class="chosen-select" id="question10">
           <option value=""></option>
           <option value="1">1 (Strongly Disagree)</option>
           <option value="2">2</option>
@@ -135,63 +135,77 @@
       <footer class="footer">
       </footer>
     </div>
-  <div id= "resultsModal" class="modal fade" role="dialogue">
-    <div class= "modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h2 class="modal-title"><strong>Best Match</strong></h2>
-      </div>
-      <div class="modal-body">
-        <h2 id="matchName"></h2>
-        <img id="matchImg" src=C:/Users/Christine/Desktop/FriendFinder/app/public/assets/andy.png" alt="">
-      </div>
-      <div class="modal-footer">
-        <button type="button class="btn btn-default" data-dismiss="modal">Close</button>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Best Match!</h4>
+          </div>
+          <div class="modal-body">
+              <div class="modal-body">
+                  <h2 id="match-name"></h2>
+                  <img id="match-img" style="max-width:500px;max-height:500px;" src="https://unsplash.com/photos/2Ts5HnA67k8"
+                      alt="">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
       </div>
     </div>
+    
   </div>
-</div>
+  
   <script>
-$(".submit").on("click", function(event) {
+
+    
+$("#submit").on("click", function(event) {
   event.preventDefault();
 
   // Here we grab the form elements
   var userData = {
-    name: $("#name").val(),
+    name: $("#fullname").val(),
     photo: $("#photo").val(),
     scores: [
-    $("#question 1").val(),
-    $("#question 2").val(),
-    $("#question 3").val(),
-    $("#question 4").val(),
-    $("#question 5").val(),
-    $("#question 6").val(),
-    $("#question 7").val(),
-    $("#question 8").val(),
-    $("#question 9").val(),
-    $("#question 10").val(),
+    $("#question1").val(),
+    $("#question2").val(),
+    $("#question3").val(),
+    $("#question4").val(),
+    $("#question5").val(),
+    $("#question6").val(),
+    $("#question7").val(),
+    $("#question8").val(),
+    $("#question9").val(),
+    $("#question10").val(),
   ]
   };
 
   console.log(userData);
 
- var currentURL = window.location.origin;
+//ajax post request that sends our userData to the server (by default attached to req.body)
+// AJAX post the data to the friends API.  
+$.post("/api/friends", userData, function(res) {
+    console.log(res);
+    // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+      $("#match-name").text(userData.body.name);
+      $("#match-img").attr("src", userData.body.photo);
 
-  $.post(currentURL + "/api/friends", userData, function(data) {
-    $("#resultsModal").modal("toggle");
-    alert("working!");
+
+      // Show the modal with the best match
+      $("#results-modal").modal("toggle");
+
   });
-  {
-    else {
-      alert("Please fill out all fields before submitting survey.")
-    }
-  }
 });
   </script>
 </body>
 </html>
 
-<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
-<script type="text/javascript">
+
  
  

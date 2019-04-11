@@ -20,21 +20,44 @@ connection.connect(function(err) {
 });
 
 var path = require("path");
+var friends = [];
 
 module.exports = function(app) {
   app.get("/api/friends", function(req, res) {
     // console.log("ROUTE HIT?!");
     getProfiles(res);
   });
-  function findMatch(userData, friends) {
-    console.log(userData);
-    console.log(friends);
-  }
+  // function findMatch(userData, friends) {
+  //   console.log(userData);
+  //   console.log(friends);
+  // }
   app.post("/api/friends", function(req, res) {
-    // console.log(req.body);
-    findMatch(req.body, res);
+    console.log(req.body);
+    res.json(getMatch(req.body, friends));
+    // getMatch(req.body, res);
   });
 };
+
+function getMatch(userData, friends) {
+  var match = {};
+  var lowestDif = 1000;
+  var totalDifference;
+
+  for (var i = 0; i < friends.length; i++) {
+    totalDifference = 0;
+    friends[i].scores = friends[i].scores.split(",");
+    for (var j = 0; j < friends[i].scores; j++) {
+      totalDifference += Math.abs(
+        parseInt(userData.scores[j]) - parseInt(friends[i].scores[j])
+      );
+    }
+    if (totalDifference < lowestDif) {
+      match = friends[i];
+      lowestDif = totalDifference;
+    }
+  }
+  return match;
+}
 
 // //declare functions for querying the db and a finding match
 function getProfiles(response) {
@@ -43,7 +66,8 @@ function getProfiles(response) {
       console.log("error: ", err);
     }
     // console.log(result);
-
+    friends = result;
+    console.log(friends);
     response.json(result);
   });
 }
@@ -55,11 +79,8 @@ function getProfiles(response) {
 //finding a match
 
 // function findMatch(userData, friends) {
-//     const bestMatch = {
-//         name: '',
-//         photo: 'url',
-//         friendDifference: Infinity
-//     }
+var match = {}
+var lowestDif = Infinity
 
 //     for (let i loop over the friends) {
 //         totalDifference = 0;
@@ -71,8 +92,8 @@ function getProfiles(response) {
 //             totalDifference += Math.abs(parseInt(user score) - parseInt(friend score))
 //         }
 
-// if (totalDifference <= bestMatch.friendDifference) {
-//             bestMatch = currentFriend
+// if (totalDifference < lowestDif) {
+//             match = currentFriend
 //         }
 
 //     }
