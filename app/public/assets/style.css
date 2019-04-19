@@ -1,4 +1,4 @@
-body {
+#home {
   background-image: url(./homebackground.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
@@ -7,4 +7,7 @@ body {
 .jumbotron {
   background: none;
   color: antiquewhite;
+}
+#match-img {
+  width: 100%;
 }
